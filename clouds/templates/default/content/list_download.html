@@ -1,0 +1,39 @@
+{template "content","header"}    
+
+<div class="mod page">
+    <div class="rom">
+        
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+
+            {template "content","bread"}
+
+            <div class="content-info">
+                <div class="download-list">
+                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" moreinfo="1" num="20"}
+                {loop $data $r}
+                {php $files = string2array($r['downfiles']);}
+                    {loop $files $v}
+                    <div class="item">
+                        <div class="tt"><span>[{$CATEGORYS[$r[catid]][catname]}]</span>&nbsp;<span>[{date('Y-m-d',$r['inputtime'])}]</span>&nbsp;&nbsp;{$r[title]} - {$v[filename]}</div>
+                        <div class="download"><a href="{$v[fileurl]}">立即下载</a></div>
+                        <div class="line"></div>
+                    </div>
+                    {/loop}
+                {/loop}
+                {/pc} 
+                </div>
+                <br>
+                <div id="pages" class="text-c">{$pages}</div>
+            </div>
+            
+        </div>
+        
+        <div class="clear"></div>
+
+    </div>
+</div>
+
+{template "content","footer"}

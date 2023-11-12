@@ -1,0 +1,37 @@
+{template "content","header"}
+
+<div class="mod page">
+    <div class="rom">
+
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+
+            {template "content","bread"}
+
+            <div class="content-info  product-col">
+                <div class="product-list">
+                    {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
+                    {loop $data $r}
+                    <div class="item">
+                        <a href="{$r[url]}">
+                            <div class="pic"><img src="{$r[thumb]}" alt="{$r[title]}"></div>
+                            <div class="tt">{$r[title]}</div>
+                            <div class="line"></div>
+                        </a>
+                    </div>
+                    {/loop}
+                    {/pc}
+                    <div class="clear"></div> 
+                </div>
+                <br>
+                <div id="pages" class="text-c">{$pages}</div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+{template "content","footer"}

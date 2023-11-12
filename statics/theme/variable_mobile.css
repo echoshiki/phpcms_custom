@@ -1,0 +1,14 @@
+/* 色调可变部分 */
+
+/* 手机端主体配色方案 */
+.top, 
+.navigate_list, 
+.public-pages span,
+.mod_head_line,
+.product-page_item_title,
+.product-detail_introduce_title, 
+.picture-detail_introduce_title,
+.footer-menu { background: #02adda; background: -webkit-linear-gradient(to right, #02adda, #009cc4); background: linear-gradient(to right, #02adda, #009cc4); }
+
+/* 折叠菜单内的间隔线条 */
+.navigate_line { background-image: linear-gradient(-90deg, #02adda, #fff 50%, #02adda); }

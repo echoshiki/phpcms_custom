@@ -1,0 +1,39 @@
+{template "content","header"}    
+
+<div class="mod page">
+    <div class="rom">
+
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+
+            {template "content","bread"}
+
+            <div class="content-info">
+                <div class="news-list">
+                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="20"}
+                {loop $data $r}
+                <div class="item">
+                    <div class="thumb left"><a href="{$r[url]}"><img src="{if $r[thumb]}{$r[thumb]}{else}{MY_PATH}no-news-pic.jpg{/if}" alt="{$r[title]}"></a></div>
+                    <div class="information left">
+                        <div class="tt"><a href="{$r[url]}">{$r[title]}</a></div>
+                        <div class="date"><i class="layui-icon layui-icon-date"></i>&nbsp;&nbsp;发布日期：{date('Y-m-d',$r['inputtime'])}</div>
+                        <div class="description">{$r[description]}</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="line"></div>
+                {/loop}
+                {/pc} 
+                </div>
+                <br>
+                <div id="pages" class="text-c">{$pages}</div>
+            </div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+{template "content","footer"}

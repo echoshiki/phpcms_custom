@@ -1,0 +1,29 @@
+{template "content","header"}   
+
+<?php
+      if (empty($content)) {
+          $childString = $CATEGORYS[$catid]['arrchildid'];
+          $childArray = explode(',',$childString);
+          $childId = $childArray[1];
+          if ((count($childArray)>1)&&!empty($childId)) { header('Location:'.$CATEGORYS[$childId]['url']); }   
+      }
+?> 
+
+<div class="mod page">
+    <div class="rom">
+
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+
+            {template "content","bread"}
+        
+    		    <div class="content-info">{$content}</div>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+{template "content","footer"}

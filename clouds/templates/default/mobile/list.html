@@ -1,0 +1,43 @@
+{template "content","header"}
+
+<div class="layui-container news-page">  
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="mod_head">
+                <h1 class="mod_head_title">{$CAT[catname]}</h1>
+                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
+                <div class="mod_head_line"></div>
+            </div>
+            <div class="layui-card-body news-page_body">
+                <div class="page-category">
+                    {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
+                    <div class="page-category_item">
+                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
+                    </div>
+                    {/loop}
+                </div>
+                <div class="page-category_line--bottom"></div>
+
+                <div class="layui-col-space10 news-page_list">
+                    {pc:content action="lists" catid="$catid" num="12" order="listorder desc" page="$page"}
+                    {loop $data $r}
+                    <div class="news-page_item">
+                        <div class="news-page_item_thumb"><a href="{$r[url]}" title="{$r[title]}" class="news-page_item_thumb_link"><img src="{$r[thumb]}" alt="{$r[title]}"></a></div>
+                        <div class="news-page_item_info">
+                            <div class="news-page_item_title"><a href="{$r[url]}" title="{$r[title]}" class="news-page_item_title_font">{str_cut($r['title'],100)}</a></div>
+                            <div class="news-page_item_date">{date('Y-m-d', $r['inputtime'])}</div>
+                            <div class="news-page_item_desc">{str_cut($r['description'], 120)}</div>
+                        </div> 
+                    </div>
+                    {/loop}
+                    {/pc}
+                </div>
+                <div id="pages" class="public-pages">{$pages}</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}
+

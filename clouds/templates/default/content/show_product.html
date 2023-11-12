@@ -1,0 +1,88 @@
+{template "content","header"}    
+
+<div class="mod page">
+    <div class="rom">
+
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+
+            {template "content","bread"}
+
+            <link rel="stylesheet" type="text/css" href="{JS_PATH}magnifier/css/magnifier.css"> 
+            <div class="product-detail">
+            	<div class="show-ll left">
+            		<div class="magnifier" id="magnifier1">
+                        <div class="magnifier-container">
+                            <div class="images-cover"></div>
+                            <div class="move-view"></div> 
+                        </div>
+                        <div class="magnifier-assembly">
+                            <div class="magnifier-btn">
+                                <span class="magnifier-btn-left">&lt;</span>
+                                <span class="magnifier-btn-right">&gt;</span>
+                            </div>
+                            <div class="magnifier-line">
+                                <ul class="clearfix animation03">
+                                    {loop $pics $pic_k $r}
+                                    <li><div class="small-img"><img src="{$r[url]}" /></div></li>
+                                    {/loop}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="magnifier-view"></div>
+                    </div>
+            	</div> 
+            	<div class="show-rr right">
+            		<h1><svg t="1644995370064" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3698" width="30" height="30"><path d="M73.9 523.8l404.8 222.4c20.5 12.5 46.2 12.5 66.6 0l404.8-222.4c10.1-6.2 10.3-20.8 0.3-27.1l-68.1-43.6c-5.3-3.4-12-3.4-17.2 0l-48.4 31c-4.7 3-4.7 9.6-0.1 12.5l16.4 10.5c2.5 1.6 2.4 5.3-0.1 6.8L544.7 661.6c-20.2 12-45.3 12-65.5 0L191.1 513.9c-2.6-1.5-2.6-5.2-0.1-6.8l16.7-10.7c4.5-2.9 4.5-9.5 0-12.5l-48.4-31c-5.3-3.4-12-3.4-17.2 0l-68.5 43.8c-10 6.4-9.8 21 0.3 27.1z" p-id="3699" fill="#ffffff"></path><path d="M950.4 675.7l-68.1-43.6c-5.3-3.4-12-3.4-17.2 0l-48.4 31c-4.7 3-4.7 9.6-0.1 12.5l16.4 10.5c2.5 1.6 2.4 5.3-0.1 6.8L544.7 840.6c-20.2 12-45.3 12-65.5 0L191.1 692.9c-2.6-1.5-2.6-5.2-0.1-6.8l16.7-10.7c4.5-2.9 4.5-9.5 0-12.5l-48.4-31c-5.3-3.4-12-3.4-17.2 0l-68.5 43.8c-10 6.4-9.8 21 0.3 27.1l404.8 222.4c20.5 12.5 46.2 12.5 66.6 0l404.8-222.4c10.1-6.2 10.3-20.8 0.3-27.1zM74.7 348.1l404.3 222c20.5 12.5 46.2 12.5 66.6 0l404.3-222c10.2-6.2 10.2-21 0-27.3l-404.3-222c-20.5-12.5-46.2-12.5-66.6 0l-404.3 222c-10.2 6.2-10.2 21.1 0 27.3zM364 314.3c0-8.7 7.1-15.8 15.8-15.8h106.8V191.9c0-8.7 7.1-15.8 15.8-15.8h19.3c8.7 0 15.8 7 15.8 15.8v106.7h106.8c8.7 0 15.8 7.1 15.8 15.8v19.4h-0.1c0 8.7-7.1 15.8-15.8 15.8H537.4v106.8c0 8.7-7.1 15.8-15.8 15.8h-19.3c-8.7 0-15.8-7-15.8-15.8v-107H379.9c-8.7 0-15.8-7-15.8-15.8v-19.3z" p-id="3700" fill="#ffffff"></path></svg>&nbsp;&nbsp;产品信息</h1>
+            		<div class="param">
+                        <p>电话：{$sitelist[1][tel]}</p>
+                        <p>邮箱：{$sitelist[1][email]}</p>
+                        <p>分类：{$CATEGORYS[$catid][catname]}</p>
+                        <p>概述：{$description}</p>    
+                    </div>
+            		<a href="javascript:void(0);" class="layui-btn product_ask" id="ask">立即询价</a>
+                    <a href="{$CATEGORYS[17][url]}" class="layui-btn product_contact">联系我们</a>
+            	</div>
+            	<div class="clear"></div>
+            </div>
+            <div class="product-information">
+            	<div class="layui-tab">
+              		<ul class="layui-tab-title">
+            			<li class="layui-this">产品详情</li>
+            		</ul>
+            	  	<div class="layui-tab-content">
+            		    <div class="layui-tab-item layui-show">
+                            <div class="content-info">{$content}</div>
+                        </div>
+            		</div>
+            	</div>
+            </div>
+
+            <script src="{JS_PATH}magnifier/js/jquery-1.10.2.js"></script>
+            <script type="text/javascript" src="{JS_PATH}magnifier/js/magnifier.js"></script>
+            <script type="text/javascript">
+            $(function() {
+                var magnifierConfig = {
+                    magnifier : "#magnifier1",//最外层的大容器
+                    width : 360,//承载容器宽
+                    height : 320,//承载容器高
+                    moveWidth : null,//如果设置了移动盒子的宽度，则不计算缩放比例
+                    zoom : 3//缩放比例
+                };
+                var _magnifier = magnifier(magnifierConfig);
+                /*magnifier的内置函数调用*/
+                    //设置magnifier函数的index属性
+                    _magnifier.setIndex(0);
+                    //重新载入主图,根据magnifier函数的index属性
+                    _magnifier.eqImg();
+                });
+            </script>
+    
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+{template "content","footer"}

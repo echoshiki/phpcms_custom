@@ -1,0 +1,30 @@
+{template "content","header"}
+<div class="mod page">
+    <div class="rom">
+        {template "content","left"}
+        <div class="right-col right product-col">
+            <h1>{$CATEGORYS[$catid][catname]} <span>您现在的位置：<a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></h1>  
+            <div class="content-info">
+                <div class="product-list">
+                    {pc:content action="lists" catid="$catid" order="id DESC" page="$page" moreinfo="1" num="20"}
+                    {loop $data $r}
+                    {php $files = string2array($r['downfiles']);}
+                            {loop $files $v}
+                            <div class="item">
+                                <div class="pic"><a href="{$v[fileurl]}" target="_blank"><img src="{$r[thumb]}" alt="{$r[title]}"></a></div>
+                                <div class="tt"><a href="{$v[fileurl]}" target="_blank">{$r[title]} - {$v[filename]}</a></div>
+                                <div class="line"></div>
+                            </div>
+                            {/loop}
+                    {/loop}
+                    {/pc}  
+                    <div class="clear"></div> 
+                </div>
+                <br>
+                <div id="pages" class="text-c">{$pages}</div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+{template "content","footer"}

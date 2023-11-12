@@ -1,0 +1,61 @@
+{template "content","header"}
+
+<div class="layui-container contact-page">  
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="mod_head">
+                <h1 class="mod_head_title">{$title}</h1>
+                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
+                <div class="mod_head_line"></div>
+            </div>
+            <div class="layui-card-body contact-page_body">
+            	<div class="page-category">
+            		{loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
+					<div class="page-category_item">
+                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
+                    </div>
+					{/loop}
+            	</div>
+                <div class="page-category_line--bottom"></div>
+
+                <div class="contact-page_info">
+                	<div class="contact-page_content">{$content}</div>
+                	<fieldset class="layui-elem-field">
+		                <legend>地图位置</legend>
+		                <div class="layui-field-box contact-page_map">      
+		                    <html>
+		                        <head>
+		                            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		                            <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		                            <style type="text/css">
+		                                body, html{width: 100%; height: 100%; margin:0; }
+		                                #l-map{ height: 100%; width:100%; }
+		                                #r-result{ width:100%; }
+		                            </style>
+		                            <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=kXuuknLiqndyb2hxtV51OZtaNBeMANkM"></script>
+		                            <title>本地搜索的结果面板</title>
+		                        </head>
+		                        <body>
+		                            <div id="l-map"></div>
+		                            <div id="r-result"></div>
+		                        </body>
+		                    </html>
+		                    <script type="text/javascript">
+		                        // 百度地图API功能
+		                        var map = new BMap.Map("l-map");            // 创建Map实例
+		                        map.centerAndZoom(new BMap.Point(<?php echo $sitelist[1]['mappoint']; ?>), 16);
+		                        var marker = new BMap.Marker(new BMap.Point(<?php echo $sitelist[1]['mappoint']; ?>)); // 创建标注
+		                    　　map.addOverlay(marker); // 将标注添加到地图中
+		                        map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+		                        map.setCurrentCity("扬州");          // 设置地图显示的城市 此项是必须设置的
+		                        map.enableScrollWheelZoom(true);
+		                    </script>
+		                </div>
+		            </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}

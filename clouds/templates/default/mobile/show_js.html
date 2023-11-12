@@ -1,0 +1,29 @@
+<script language="javascript" type="text/javascript" src="{JS_PATH}dialog.js"></script>
+<link href="{CSS_PATH}table_form.css" rel="stylesheet" type="text/css" />
+<link href="{CSS_PATH}dialog.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{JS_PATH}dialog.js"></script>
+
+<div class="msg-box">
+    <div class="msg-box_content">
+		<form method="post" action="{APP_PATH}index.php?m=formguide&c=index&a=show&formid={$formid}&siteid=<?php echo $this->siteid;?>"{if $no_allowed} target="member_login"{/if} name="myform" id="myform">
+			<div class="msg-box_form_item">
+				<input type="text" name="info[nickname]" id="msg_nickname" placeholder="称呼" class="msg-box_form_text">
+			</div>
+			<div class="msg-box_form_item">
+				<input type="text" name="info[phone]" id="msg_phone" placeholder="手机号码" class="msg-box_form_text">
+			</div>
+			<div class="msg-box_form_item">
+				<input type="text" name="info[wechat]" id="msg_wechat" placeholder="微信号" class="msg-box_form_text">
+			</div>
+			<div class="msg-box_form_item">
+				<input type="text" name="info[email]" id="msg_email" placeholder="电子邮箱" class="msg-box_form_text">
+			</div>
+			<div class="msg-box_form_item">
+				<textarea name="info[content]" id="content" placeholder="留言内容" class="msg-box_form_textarea"></textarea>
+			</div>
+			<div class="msg-box_form_item">
+				<input type="submit" name="dosubmit" id="dosubmit" value=" 快速提交 " class="msg-box_form_btn">
+			</div>
+		</form>
+    </div>
+</div>

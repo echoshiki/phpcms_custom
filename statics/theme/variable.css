@@ -1,0 +1,11 @@
+/* 色调可变部分 */
+
+/* PC端内页左侧配色方案 */
+.page .left-col .category-tab .tab-tt, .page .left-col .contact-tab .tab-tt, .page .product-col .line, .product-detail .show-rr h1, .product-information .layui-tab-title .layui-this { background: #02adda; background: -webkit-linear-gradient(to right, #02adda, #009cc4); background: linear-gradient(to right, #02adda, #009cc4); }
+.page .left-col .tab-list-2 .item:hover .pic { border: 1px solid #02adda; transition: all 0.2s ease 0s; }
+.page .left-col .tab-list-1 .item a:hover, .page .left-col .tab-list-2 .item:hover .tt, .page .right-col .news-list .tt span, .page .product-col .item:hover .tt a, .page .product-col .item:hover .tt { color: #02adda; } 
+.page .left-col .tab-list-1 .item a:hover { background: #02adda; background: -webkit-linear-gradient(to right, #02adda, #009cc4); background: linear-gradient(to right, #02adda, #009cc4); color: #fff; transition: all 0.2s ease 0s; }
+
+/* PC端内页产品详情页按钮 */
+.product-detail .show-rr .product_ask { background: #D31027; background: -webkit-linear-gradient(to right, #D31027, #EA384D); background: linear-gradient(to right, #D31027, #EA384D); }
+.product-detail .show-rr .product_contact { background: #485563; background: -webkit-linear-gradient(to right, #29323c, #485563); background: linear-gradient(to right, #29323c, #485563); }

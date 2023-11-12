@@ -1,0 +1,25 @@
+{template "content","header"}
+
+<div class="layui-container news-detail">  
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="mod_head news-detail_head">
+                <h1 class="news-detail_head_title">{$title}</h1>
+                <p class="news-detail_head_subtitle">发表时间：{$inputtime}</p>
+                <div class="mod_head_line"></div>
+            </div>
+
+            <div class="layui-card-body news-detail_body">
+                {if $thumb}
+                <div class="news-detail_thumb"><img src="{$thumb}" alt="{$title}"></div>
+                <hr>
+                {/if}
+                <div class=" news-detail_content">
+                	{$content}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}

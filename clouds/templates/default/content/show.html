@@ -1,0 +1,32 @@
+{template "content","header"}    
+
+<div class="mod page">
+    <div class="rom">
+        
+        {template "content","left"} 
+
+        <!-- 标题 & 面包屑 -->
+        <div class="right-col right">
+            
+            {template "content","bread"} 
+
+            <div class="news-col-show">
+                <h2>{$title}</h2> 
+                <div class="sub-info">
+                	<i class="layui-icon layui-icon-list"></i>&nbsp;&nbsp;{$CATEGORYS[$catid][catname]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="layui-icon layui-icon-date"></i>&nbsp;&nbsp;{$inputtime}
+                </div> 
+                <blockquote class="layui-elem-quote layui-quote-nm">{$description}</blockquote>
+                <div class="content-info">{$content}</div>
+                <p class="f14">
+                    <strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
+                    <strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+</div>
+
+{template "content","footer"}

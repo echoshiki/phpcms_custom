@@ -1,0 +1,37 @@
+{template "content","header"}
+
+<style type="text/css">
+    .product-col .item { position: relative; }
+    .product-col .play-icon { display: block; width: 64px; height: 64px; background: url({MY_PATH}play.png) center top no-repeat; background-size: 100%; position: absolute; top: 100px; left: 100px; }
+</style>
+
+<div class="mod page">
+    <div class="rom">
+        {template "content","left"}
+        <div class="right-col right product-col">
+            <h1>{$CATEGORYS[$catid][catname]} <span>您现在的位置：<a href="{siteurl($siteid)}">首页</a> > {catpos($catid)} 列表</span></h1>  
+            <div class="content-info">
+                <div class="product-list">
+                    {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="9"}
+                    {loop $data $r}
+                    <div class="item">
+                        <div class="pic">
+                            <a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}"></a>
+                            <a href="{$r[url]}" class="play-icon"></a>
+                        </div>
+                        <div class="tt"><a href="{$r[url]}">{$r[title]}</a></div>
+                        <div class="line"></div>
+                    </div>
+                    {/loop}
+                    {/pc}
+                    <div class="clear"></div> 
+                </div>
+                <br>
+                <div id="pages" class="text-c">{$pages}</div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+{template "content","footer"}

@@ -1,0 +1,35 @@
+{template "content","header"}
+
+<div class="layui-container msg-page">  
+    <div class="layui-row">
+        <div class="layui-card">
+            <div class="mod_head">
+                <h1 class="mod_head_title">{$title}</h1>
+                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
+                <div class="mod_head_line"></div>
+            </div>
+            <div class="layui-card-body msg-page_body">
+                <div class="page-category">
+                    {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
+                    <div class="page-category_item">
+                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
+                    </div>
+                    {/loop}
+                </div>
+                <div class="page-category_line--bottom"></div>
+
+                <div class="msg-page_info">
+                    <div class="msg-page_content">
+                        <script language='javascript' src='{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&action=js&siteid=1'></script>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{template "content","footer"}
+
+
+

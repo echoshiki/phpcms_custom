@@ -1,0 +1,91 @@
+<style>   
+    .page { background: #fff; }
+    .right-col .page-head h1 { position: relative; top: 1px; }
+
+    /* 内页配色方案 */
+    .product-col .line { background: #00c4b3; }
+    .left-col-2 .tab-list-2 .item:hover .pic { border: 1px solid #00c4b3; transition: all 0.2s ease 0s; }
+    .left-col-2 .tab-list-1 .item a:hover, .left-col-2 .tab-list-2 .item:hover .tt, .right-col .news-list .tt span, .product-col .item:hover .tt a, .product-col .item:hover .tt { color: #00c4b3; } 
+    .left-col-2 .tab-tt span, .right-col .page-head h1 { color: #00c4b3; border-bottom: 1px solid #00c4b3;}
+
+</style>
+
+<div class="left-col-2 left">
+
+    <div class="category-tab">
+        <div class="tab-tt"><span>栏目分类</span></div>
+        <div class="tab-list-1">
+            {if !$CATEGORYS[$top_parentid][child]}
+                <div class="item"><a href="javascript:void(0);">全部</a></div>
+            {else}
+                {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
+                <div class="item">
+                    {if !$CATEGORYS[$r[catid]][child]}
+                        <a href="{$CATEGORYS[$r[catid]][url]}">>&nbsp;&nbsp;&nbsp;{$CATEGORYS[$r[catid]][catname]}<span>+&nbsp;&nbsp;</span></a>
+                    {else}
+                        <a href="{$CATEGORYS[$r[catid]][url]}">>&nbsp;&nbsp;&nbsp;{$CATEGORYS[$r[catid]][catname]}<span>+&nbsp;&nbsp;</span></a>
+                        {loop subcat($r[catid],0,0,$siteid) $v}
+                            <div class="citem"><a href="{$CATEGORYS[$v[catid]][url]}">{$CATEGORYS[$v[catid]][catname]}</a></div>
+                        {/loop}
+                    {/if}                  
+                </div>
+                {/loop}
+            {/if}
+        </div>
+    </div>
+
+    <div class="product-tab">
+        <div class="tab-tt"><span>最新产品</span></div>
+        <div class="tab-list-2">
+            {pc:content action="lists" catid="13" order="listorder DESC" num="4"}
+            {loop $data $r}
+            <div class="item">
+                <div class="pic">
+                    <a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}"></a>
+                </div>
+                <a href="{$r[url]}" class="tt">{$r[title]}</a>
+            </div>
+            {/loop}
+            {/pc}
+        </div>
+    </div>
+    <div class="contact-tab">
+        <div class="tab-tt"><span>联系方式</span></div>
+        <div class="tab-list-3">
+            {if $sitelist[1][tel]}
+            <?php $tel = explode(',', $sitelist[1]['tel']); ?>
+            <div class="item">
+                <div class="tt">电 话：</div>
+                <div class="value">
+                    <?php foreach ($tel as $key => $value): ?>
+                    <p>{$value}</p>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            {/if}
+            {if $sitelist[1][mobile]}
+            <?php $mobile = explode(',', $sitelist[1]['mobile']); ?>
+            <div class="item">
+                <div class="tt">手 机：</div>
+                <div class="value">
+                    <?php foreach ($mobile as $key => $value): ?>
+                    <p>{$value}</p>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            {/if}
+            {if $sitelist[1][email]}
+            <div class="item">
+                <div class="tt">邮 箱：</div>
+                <div class="value">{$sitelist[1][email]}</div>
+            </div>
+            {/if}
+            {if $sitelist[1][address]}
+            <div class="item">
+                <div class="tt">地 址：</div>
+                <div class="value">{$sitelist[1][address]}</div>
+            </div>
+            {/if}
+        </div>
+    </div> 
+</div>
