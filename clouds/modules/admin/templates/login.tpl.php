@@ -6,8 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 	<title>云铺网络智能管理平台 CloudS Copyright 2019</title>
 	<link rel="stylesheet" href="<?php echo JS_PATH?>layui/css/layui.css">
-	<link rel="stylesheet" href="<?php echo JS_PATH?>layui/mod/css/admin.css">
-	<link rel="stylesheet" href="<?php echo JS_PATH?>layui/mod/css/login.css">
+	<link rel="stylesheet" href="<?php echo JS_PATH?>layui/css/admin.css">
+	<link rel="stylesheet" href="<?php echo JS_PATH?>layui/css/login.css">
 
 	<div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
 		<div class="layadmin-user-login-main">
@@ -53,7 +53,7 @@
 
 		<div class="layui-trans layadmin-user-login-footer">
 
-			<p>© 2019 <a href="http://www.yzypwl.com/" target="_blank">yzypwl.com 云铺网络 CloudS+ Co.,Ltd.</a></p>
+			<p>© <?php echo date('Y') ?> <a href="http://www.yzypwl.com/" target="_blank">yzypwl.com 云铺网络 CloudS+ Co.,Ltd.</a></p>
 			<p>
 				<span><a href="/" target="_blank">回到首页</a></span>
 				<span><a href="http://www.yzypwl.com/" target="_blank">前往官网</a></span>

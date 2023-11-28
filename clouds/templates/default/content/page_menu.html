@@ -1,0 +1,19 @@
+<div class="page_menu">
+    <div class="container d-flex p-0">
+
+        {if !$CATEGORYS[$top_parentid][type]}
+        <div class="page_menu_item {if $catid == $top_parentid} active {/if}">
+            <a href="{$CATEGORYS[$top_parentid][url]}" title="{$CATEGORYS[$top_parentid][catname]}">全部</a>
+        </div>
+        {/if}
+
+        {pc:content action="category" catid="$top_parentid" num="8" siteid="$siteid" order="listorder ASC"}
+        {loop $data $r}
+        <div class="page_menu_item {if $catid == $r[catid]} active {/if}">
+            <a href="{$r[url]}" title="{$r[catname]}">{$r[catname]}</a>
+        </div>
+        {/loop}
+        {/pc}
+
+    </div>
+</div>

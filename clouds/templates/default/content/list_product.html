@@ -1,36 +1,25 @@
 {template "content","header"}
 
-<div class="mod page">
-    <div class="rom">
-
-        {template "content","left"} 
-
-        <!-- 标题 & 面包屑 -->
-        <div class="right-col right">
-
-            {template "content","bread"}
-
-            <div class="content-info  product-col">
-                <div class="product-list">
-                    {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
-                    {loop $data $r}
-                    <div class="item">
-                        <a href="{$r[url]}">
-                            <div class="pic"><img src="{$r[thumb]}" alt="{$r[title]}"></div>
-                            <div class="tt">{$r[title]}</div>
-                            <div class="line"></div>
-                        </a>
+<div class="page">
+    <div class="container d-flex justify-content-between">
+        {template "content","side"}
+        <div class="page_list py-5">
+            <div class="page_product_list">
+                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
+                {loop $data $r}
+                <div class="page_product_item mb-3">
+                    <div class="page_product_thumb">
+                        <a href="{$r[url]}" title="{$r[title]}"><img src="{$r[thumb]}" alt="{$r[title]}"></a>
                     </div>
-                    {/loop}
-                    {/pc}
-                    <div class="clear"></div> 
+                    <div class="page_product_title">
+                        <a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a>
+                    </div>
                 </div>
-                <br>
-                <div id="pages" class="text-c">{$pages}</div>
+                {/loop}
+                {/pc}
             </div>
-
+            <div id="pages" class="">{$pages}</div>
         </div>
-        <div class="clear"></div>
     </div>
 </div>
 

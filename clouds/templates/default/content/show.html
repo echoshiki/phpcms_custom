@@ -1,32 +1,28 @@
-{template "content","header"}    
+{template "content","header"}   
 
-<div class="mod page">
-    <div class="rom">
+<div class="page">
+    <div class="container py-3">
         
-        {template "content","left"} 
+        {template "content","page_menu"}  
 
-        <!-- 标题 & 面包屑 -->
-        <div class="right-col right">
-            
-            {template "content","bread"} 
-
-            <div class="news-col-show">
-                <h2>{$title}</h2> 
-                <div class="sub-info">
-                	<i class="layui-icon layui-icon-list"></i>&nbsp;&nbsp;{$CATEGORYS[$catid][catname]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="layui-icon layui-icon-date"></i>&nbsp;&nbsp;{$inputtime}
-                </div> 
-                <blockquote class="layui-elem-quote layui-quote-nm">{$description}</blockquote>
-                <div class="content-info">{$content}</div>
-                <p class="f14">
-                    <strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
-                    <strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
-                </p>
+        <div class="page_content py-5">
+            <h4 class="page_title text-center">
+                {$title}
+            </h2>
+            <div class="page_subtitle">
+                栏目：{$CATEGORYS[$catid][catname]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发布时间：{$inputtime}
+            </div>
+            <div class="page_inner">
+                {$content}
+            </div>
+            <div class="page_link mt-5">
+                <p>上一篇：<a href="{$previous_page[url]}" title="{$previous_page[title]}">{$previous_page[title]}</a></p>
+                <p>下一篇：<a href="{$next_page[url]}" title="{$next_page[title]}">{$next_page[title]}</a></p>
             </div>
         </div>
-
-        <div class="clear"></div>
-
     </div>
 </div>
 
 {template "content","footer"}
+
+

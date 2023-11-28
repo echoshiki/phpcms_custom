@@ -1,23 +1,17 @@
 {template "content","header"}
 
-<div class="layui-container news-detail">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head news-detail_head">
-                <h1 class="news-detail_head_title">{$title}</h1>
-                <p class="news-detail_head_subtitle">发表时间：{$inputtime}</p>
-                <div class="mod_head_line"></div>
-            </div>
+{template "content","_banner"}
+{template "content","_category"}
 
-            <div class="layui-card-body news-detail_body">
-                {if $thumb}
-                <div class="news-detail_thumb"><img src="{$thumb}" alt="{$title}"></div>
-                <hr>
-                {/if}
-                <div class=" news-detail_content">
-                	{$content}
-                </div>
-            </div>
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10">
+        <div class="text-center">
+            <p class="text-lg">{$title}</p>
+            <div class="inline-block h-1 bg-[var(--main-color)] w-10 my-2"></div>
+            <p class="text-gray-400 text-xs">{$inputtime}</p>
+        </div>
+        <div class="font-serif text-sm leading-loose mt-5">
+            {$content}
         </div>
     </div>
 </div>

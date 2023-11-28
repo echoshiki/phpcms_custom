@@ -73,7 +73,8 @@ class index extends admin {
 					$this->times_db->insert(array('username'=>$username,'ip'=>$ip,'isadmin'=>1,'logintime'=>SYS_TIME,'times'=>1));
 					$times = $maxloginfailedtimes;
 				}
-				showmessage(L('password_error',array('times'=>$times)),'?m=admin&c=index&a=login',3000);
+				// showmessage(L('password_error',array('times'=>$times)),'?m=admin&c=index&a=login',3000);
+				showmessage(L('password_error',array('times'=>$times)),'',3000);
 			}
 			$this->times_db->delete(array('username'=>$username));
 			

@@ -1,0 +1,45 @@
+{if $CATEGORYS[$top_parentid]['type'] == 1}
+<!-- 单页分类导航 -->
+<div class="px-5 -mt-10">
+    <div class="bg-white px-5 py-8">
+        <p class="flex justify-start gap-3">
+            {pc:content action="category" catid="$top_parentid" num="4" siteid="$siteid" order="listorder ASC"}
+            {loop $data $r}
+            <a class="font-sm leading-loose text-gray-400 {if $r['catid']==$catid} text-slate-900 font-bold border-b-4 border-[var(--main-color)] {/if}]" href="{$r['url']}" title="{$r['catname']}">{$r['catname']}</a>
+            {/loop}
+            {/pc}
+        </p>
+    </div>
+</div>
+{else}
+<!-- 列表页导航 -->
+<!-- 两级分类设计，多级不可用 -->
+<div class="px-5 -mt-10">
+    <div class="bg-white px-5 py-8">
+        <p class="flex justify-start gap-3">
+            <a class="font-sm leading-loose text-gray-400 {if $top_parentid==$catid} text-slate-900 font-bold border-b-4 border-[var(--main-color)] {/if}" href="{$CATEGORYS[$top_parentid]['url']}" title="全部">全部</a>
+            {pc:content action="category" catid="$top_parentid" num="4" siteid="$siteid" order="listorder ASC"}
+            {loop $data $r}
+            <a class="font-sm leading-loose text-gray-400 {if $r['catid']==$catid || $CATEGORYS[$catid][parentid]==$r['catid']} text-slate-900 font-bold border-b-4 border-[var(--main-color)] {/if}]" href="{$r['url']}" title="{$r['catname']}">{$r['catname']}</a>
+            {/loop}
+            {/pc}
+        </p>
+
+        <?php
+            $cid = !$CATEGORYS[$catid][child] ? $CATEGORYS[$catid][parentid] : $catid;
+        ?>
+
+        {if $CATEGORYS[$cid][child] && $cid != $top_parentid}
+        <div class="h-px w-full my-4 bg-gray-200"></div>
+        <p class="flex flex-wrap justify-start gap-3 mt-2">
+            {pc:content action="category" catid="$cid" num="20" siteid="$siteid" order="listorder ASC"}
+            {loop $data $r}
+            <a class="font-sm leading-loose text-gray-400 {if $r['catid']==$catid} text-slate-900 font-bold border-b-4 border-[var(--main-color)] {/if}]" href="{$r['url']}" title="{$r['catname']}">{$r['catname']}</a>
+            {/loop}
+            {/pc}
+        </p>
+        {/if}
+
+    </div>
+</div>
+{/if}

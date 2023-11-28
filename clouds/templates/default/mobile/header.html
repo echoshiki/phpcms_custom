@@ -1,65 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
-    <meta content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta content="telephone=no" name="format-detection" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
     <meta name="keywords" content="{$SEO['keyword']}">
     <meta name="description" content="{$SEO['description']}">
-    <link href="{JS_PATH}layui/css/layui.css" rel="stylesheet" type="text/css" />
-    <link href="{JS_PATH}swiper/css/swiper.min.css" rel="stylesheet" type="text/css" >  
-    <link href="{MY_PATH}mobile.css" rel="stylesheet" type="text/css" />
-    <link href="{MY_PATH}variable_mobile.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{CSS_PATH}swiper.min.css" rel="stylesheet" type="text/css" >  
+    <link href="{MY_PATH}public.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
-    <div class="mod layui-container top">  
-        <div class="rom layui-row">
-            <div class="top_title">
-                <h1 class="top_title_font top_title_font--cn">{$sitelist[1][company_cn]}</h1>
-                <p class="top_title_font top_title_font--en">{$sitelist[1][company_en]}</p>
-            </div>
-            <div class="top_menu-icon" id="menu">
-                <svg t="1561471067397" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3789" width="30" height="30"><path d="M890.005333 277.333333l-640 0c-11.733333 0-21.333333-9.6-21.333333-21.333333l0 0c0-11.733333 9.6-21.333333 21.333333-21.333333l640 0c11.733333 0 21.333333 9.6 21.333333 21.333333l0 0C911.338667 267.733333 901.738667 277.333333 890.005333 277.333333z" p-id="3790" fill="#ffffff"></path><path d="M890.005333 533.333333l-640 0c-11.733333 0-21.333333-9.6-21.333333-21.333333l0 0c0-11.733333 9.6-21.333333 21.333333-21.333333l640 0c11.733333 0 21.333333 9.6 21.333333 21.333333l0 0C911.338667 523.733333 901.738667 533.333333 890.005333 533.333333z" p-id="3791" fill="#ffffff"></path><path d="M890.005333 787.989333l-640 0c-11.733333 0-21.333333-9.6-21.333333-21.333333l0 0c0-11.733333 9.6-21.333333 21.333333-21.333333l640 0c11.733333 0 21.333333 9.6 21.333333 21.333333l0 0C911.338667 778.389333 901.738667 787.989333 890.005333 787.989333z" p-id="3792" fill="#ffffff"></path><path d="M133.994667 256m-21.333333 0a1 1 0 1 0 42.666667 0 1 1 0 1 0-42.666667 0Z" p-id="3793" fill="#ffffff"></path><path d="M133.994667 512m-21.333333 0a1 1 0 1 0 42.666667 0 1 1 0 1 0-42.666667 0Z" p-id="3794" fill="#ffffff"></path><path d="M133.994667 768m-21.333333 0a1 1 0 1 0 42.666667 0 1 1 0 1 0-42.666667 0Z" p-id="3795" fill="#ffffff"></path></svg>
-            </div>
-        </div>
-    </div>
+<body class="bg-gray-200">
 
-    <div class="mod layui-container navigate" title="hidden">  
-        <div class="rom layui-row">
-            <ul class="navigate_list"> 
-                <li class="navigate_item">
-                    <a href="/" class="navigate_font">首页</a>
-                    <div class="navigate_line"></div>
+    <div class="h-24 px-4 bg-white flex justify-between items-center">
+        <div class="h-10">
+            <a href="{$sitelist[1][url]}"><img class="h-full" src="{MY_PATH}logo.png" alt="{$sitelist[1][company_cn]}"></a>
+        </div>
+        
+        <div class="w-6 h-6 group" id="open-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+            </svg>
+        </div> 
+        
+        <div class="w-screen h-screen flex flex-col justify-center items-center bg-[var(--main-color)] opacity-90 fixed top-0 left-[-100%] z-50" id="menu">
+            <ul class="w-1/2 mx-auto text-center">
+                <li class="w-full">
+                    <a class="text-slate-100 text-lg font-bold opacity-0 duration-500" href="/">首页</a>
+                    <div class="w-0 h-px my-4 bg-gray-200 duration-500"></div>
                 </li>
                 {pc:content action="category" catid="0" num="20" siteid="$siteid" order="listorder ASC"}
                 {loop $data $r} 
                 {if $r[ismobilemenu] == 1}
-                <li class="navigate_item">
-                    <a href="{$r[url]}" class="navigate_font">{$r[catname]}</a>
-                    <div class="navigate_line"></div>
+                {$i++}
+                <li class="w-full">
+                    <a class="text-slate-100 text-lg font-bold opacity-0 duration-[<?php echo 500+$i*100 ?>ms]" href="{$r[url]}">{$r[catname]}</a>
+                    <div class="w-0 h-px my-4 bg-gray-200 duration-[<?php echo 500+$i*100 ?>ms]"></div>
                 </li>
                 {/if}
                 {/loop}
                 {/pc}
-            </ul>   
+            </ul>
+            <button class="text-slate-100 my-10" id="close-menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" fill="#ffffff"/></svg>
+            </button>  
         </div>
-    </div>  
-
-    <script type="text/javascript">
-        $('#menu').live("click",function(){
-            var navObj = $(".navigate");
-            currentHeight = navObj.height();
-            if (currentHeight == 0) {
-                autoHeight = navObj.css('height','auto').height();
-                navObj.height(currentHeight).animate({height: autoHeight}, 200);
-            } else {
-                navObj.height(currentHeight).animate({height: "0px"}, 200);
-            }
-        });
-    </script>
+    </div>
+    

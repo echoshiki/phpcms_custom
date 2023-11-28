@@ -1,23 +1,35 @@
-{template "content","header"}    
+{template "content","header"}   
 
-<div class="mod page">
-    <div class="rom">
+<div class="page">
+    <div class="container py-3">
         
-        {template "content","left"}
+        {template "content","page_menu"}  
 
-        <!-- 标题 & 面包屑 -->
-        <div class="right-col right">
-        	
-            {template "content","bread"}
- 
-		    <div class="content-info">
-                <div class="content-info">{$content}</div>
-				<script language='javascript' src='{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&action=js&siteid=1'></script>
-		    </div>
-	    </div>
-        
-        <div class="clear"></div>
-
+        <div class="page_content py-5">
+            <h5 class="page_title text-center">
+                {$CATEGORYS[$catid]['catname']}
+            </h5>
+            <div class="page_msg_content">
+                <form action="/index.php?m=formguide&c=index&a=show&formid=15&siteid=1" method="post" class="page_msg_form">
+                    <div class="page_msg_item">
+                        <input type="text" name="info[nickname]" id="nickname" placeholder="请输入您的称呼" />
+                    </div>
+                    <div class="page_msg_item">
+                        <input type="text" name="info[phone]" id="phone" placeholder="请输入您的联系方式" />
+                    </div>
+                    <div class="page_msg_item">
+                        <input type="text" name="info[wechat]" id="wechat" placeholder="请输入您的微信号" />
+                    </div>
+                    <div class="page_msg_item">
+                        <input type="text" name="info[email]" id="email" placeholder="请输入您的电子邮箱" />
+                    </div>
+                    <div class="page_msg_item">
+                        <textarea name="info[content]" id="content" placeholder="请输入您的留言内容"></textarea>
+                    </div>
+                    <button type="submit" name="dosubmit" id="dosubmit">提交</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,65 +1,71 @@
-    
-    <div class="mod-line"></div>
-
-    <div class="mod layui-container footer">  
-        <div class="layui-row"> 
-            <p class="footer_font">{$sitelist[1][site_title]}</p>
-            <p class="footer_font">© {date('Y', time())}. All Rights Reserved. Mobile Verison</p>
-            <p class="footer_font">技术支持：云铺网络</p>
-            <p class="footer_font">备案号：<a href="https://beian.miit.gov.cn/#/Integrated/index">{$sitelist[1][icp]}</a></p>
-        </div>
+    <div class="bg-slate-900 py-12 text-center text-white text-sm leading-loose mt-5">
+        <p>© {date('Y')} {$sitelist[1][company_cn]} All Rights Reserved.</p>
+        <p>备案号：<a class="text-inherit" href="https://beian.miit.gov.cn/#/Integrated/index">{$sitelist[1][icp]}</a></p>
+        <p>Mobile Verison Powered By <a class="text-inherit" href="https://www.yzypwl.com/" target="_blank">云铺网络</a></p>
     </div>
 
-    <?php 
-        $telString = $sitelist[1]['tel'] ? $sitelist[1]['tel'] : $sitelist[1]['mobile'];
-        $telArray = explode(',', $telString);
-        $tel = $telArray[0];
-        $pointString = $sitelist[1]['mappoint'];
-        $pointArray = explode(',', $pointString);
-        $pointString = $pointArray[1].','.$pointArray[0];
-     ?>
-
-    <div class="mod layui-container footer-menu">  
-        <div class="layui-row">
-            <ul class="footer-menu_list">
-                <li class="footer-menu_item"><a href="/">
-                    <p><svg t="1561427216595" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2032" width="32" height="32"><path d="M768 869.783 602.256 869.783 602.256 686.265 421.783 686.265l0 183.519L256 869.784 256 607.614l-26.217 0 0 262.169L229.783 896 256 896l164.241 0L603.76 896 768 896l26.218 0 0-26.217L794.218 607.614 768 607.614 768 869.783zM576.039 869.783 448 869.783 448 712.481l128.039 0L576.039 869.783z" p-id="2033" fill="#ffffff"></path><path d="M814.807 401.455 814.807 212.932l-28.841 0 0 162.896L512 132.296 65 529.621l447 0 447 0L814.807 401.455zM133.954 503.404 512 167.372l300.183 266.842 77.857 69.19L133.954 503.404z" p-id="2034" fill="#ffffff"></path></svg></p>
-                    <p class="footer-menu_item_title">首页</p>
-                </a></li>
-                <li class="footer-menu_item"><a href="tel:{$tel}">
-                    <p><svg t="1561426418499" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4430" width="32" height="32"><path d="M512 65C265.146 65 65 265.146 65 512c0 246.84 200.146 447 447 447 246.854 0 447-200.16 447-447C959 265.146 758.854 65 512 65zM512 929.2C281.952 929.2 94.8 742.048 94.8 512S281.952 94.8 512 94.8 929.2 281.952 929.2 512 742.048 929.2 512 929.2z" p-id="4431" fill="#ffffff"></path><path d="M583.677 575.602c-9.414 0.379-17.242 2.445-23.514 4.089-12.048 3.187-21.564 5.704-57.185-61.535l-4.264-8.09c-35.067-66.178-27.064-74.181-24.052-77.207 1.615-1.615 3.39-3.128 5.224-4.715 2.75-2.4 5.587-4.903 8.396-7.697 0.015 0 0.015 0 0.015 0 2.808-2.822 5.573-5.922 8.177-9.458 18.495-25.013 7.77-69.756-0.276-94.187-8.134-24.736-21.986-55.497-41.833-61.623-12.703-3.885-52.252-7.348-82.532 22.918-11.495 11.51-20.182 26.555-25.769 44.729-22.641 73.656 16.82 163.828 58.407 242.314 41.615 78.517 94.1 161.819 167.653 184.402 50.769 15.628 82.242-5.922 96.473-20.153 11.393-11.393 18.086-24.081 20.356-31.458 4.889-15.904-4.308-39.156-27.37-69.103C645.853 608.414 614.801 574.336 583.677 575.602zM667.592 691.354c-1.324 4.307-6.359 13.794-14.799 22.233-8.687 8.687-23.834 19.062-46.605 19.062-8.629 0-17.883-1.514-27.486-4.467-65.799-20.211-115.024-99.048-154.486-173.519-39.447-74.427-77.032-159.418-56.792-225.275 4.496-14.623 11.306-26.569 20.226-35.504 15.599-15.599 34.034-18.857 46.737-18.857 6.65 0 11.583 0.96 13.445 1.527 4.423 1.368 15.889 13.023 27.137 47.232 11.059 33.583 12.412 61.913 3.536 73.918-1.935 2.634-3.987 4.903-6.053 6.97-2.357 2.328-4.845 4.525-7.261 6.635-2.474 2.139-4.481 3.899-6.33 5.748-16.952 17.039-11.874 43.129 20.109 103.471l4.234 8.047c30.353 57.286 46.606 74.747 69.61 74.747 5.413 0 9.837-1.164 13.066-2.022 5.82-1.528 11.758-3.085 18.698-3.361l0.015 0c15.715 0 38.123 17.054 59.279 44.525C670.793 677.414 667.999 690.044 667.592 691.354z" p-id="4432" fill="#ffffff"></path></svg></p>
-                    <p class="footer-menu_item_title">电话</p>
-                </a></li>
-                <li class="footer-menu_item"><a href="{$CATEGORYS[13][url]}">
-                    <p><svg t="1561427674934" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2994" width="32" height="32"><path d="M929.171 696.364C928.371 821.492 737.683 927.071 512 927.071S95.629 821.492 94.829 696.364c-9.836-8.606-19.062-17.523-27.646-26.753C65.757 678.155 65 686.823 65 695.585 65 841.091 265.131 959 512 959c246.868 0 447-117.909 447-263.415 0-8.762-0.757-17.43-2.183-25.974C948.232 678.841 939.007 687.758 929.171 696.364z" p-id="2995" fill="#ffffff"></path><path d="M929.171 520.754C928.371 645.883 737.683 751.461 512 751.461S95.629 645.883 94.829 520.754c-9.836-8.605-19.062-17.523-27.646-26.753C65.757 502.544 65 511.213 65 519.976c0 145.504 200.131 263.415 447 263.415 246.868 0 447-117.911 447-263.415 0-8.763-0.757-17.432-2.183-25.975C948.232 503.23 939.007 512.148 929.171 520.754z" p-id="2996" fill="#ffffff"></path><path d="M512 591.815c246.868 0 447-117.91 447-263.416C959 182.941 758.868 65 512 65 265.131 65 65 182.941 65 328.4 65 473.905 265.131 591.815 512 591.815zM512 96.929c226.148 0 417.2 106 417.2 231.471 0 125.472-191.052 231.487-417.2 231.487S94.8 453.872 94.8 328.4C94.8 202.928 285.852 96.929 512 96.929z" p-id="2997" fill="#ffffff"></path></svg></p>
-                    <p class="footer-menu_item_title">产品</p>
-                </a></li>
-                <li class="footer-menu_item"><a href="mailto:{$sitelist[1][email]}">
-                    <p><svg t="1561426615321" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1597" width="32" height="32"><path d="M512 176.75 65 176.75l0 670.5 4.118 0 52.688 0L512 847.25l390.194 0 52.688 0L959 847.25l0-670.5L512 176.75zM883.395 206.55 512 553.192 140.606 206.55 883.395 206.55zM883.395 817.449 140.606 817.449l283.595-264.693-21.841-20.371L96.925 817.449 94.8 817.449 94.8 206.55l2.125 0L512 593.949 927.076 206.55l2.124 0 0 610.899-2.124 0L621.641 532.385 599.8 552.756 883.395 817.449z" p-id="1598" fill="#ffffff"></path></svg></p>
-                    <p class="footer-menu_item_title">邮件</p>
-                </a></li>
-                <li class="footer-menu_item"><a href="http://api.map.baidu.com/geocoder?location={$pointString}&coord_type=bd09ll&output=html&src=webapp.baidu.openAPIdemo">
-                    <p><svg t="1561427251868" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2250" width="32" height="32"><path d="M512 65c-174.857 0-316.625 141.753-316.625 316.625C195.375 597.762 512 959 512 959s316.625-361.238 316.625-577.375C828.625 206.753 686.856 65 512 65zM225.175 381.625C225.175 223.472 353.848 94.8 512 94.8s286.825 128.672 286.825 286.825c0 169.909-215.716 445.064-286.825 531.146C440.89 826.689 225.175 551.534 225.175 381.625z" p-id="2251" fill="#ffffff"></path><path d="M512 232.625c-82.154 0-149 66.846-149 149 0 82.153 66.846 149 149 149 82.154 0 149-66.847 149-149C661 299.471 594.154 232.625 512 232.625zM512 500.825c-65.726 0-119.2-53.475-119.2-119.2 0-65.726 53.474-119.2 119.2-119.2 65.726 0 119.2 53.474 119.2 119.2C631.2 447.351 577.726 500.825 512 500.825z" p-id="2252" fill="#ffffff"></path></svg></p>
-                    <p class="footer-menu_item_title">导航</p>
-                </a></li>
-            </ul>
-        </div>
-    </div>
-
-    <script src="{JS_PATH}layui/layui.js"></script>
+    <script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+    <script type="text/javascript" src="{JS_PATH}swiper.min.js"></script>
     <script>
-    layui.use(['element','carousel', 'form'], function(){
-        var element = layui.element;
-        var carousel = layui.carousel;
-        var form = layui.form;
-        carousel.render({
-            elem: '#banner'
-            ,width: '100%' //设置容器宽度
-            ,height: '160px'
-            ,arrow: 'always' //始终显示箭头
-            //,anim: 'updown' //切换动画方式
-        });
+
+    var myBanner = new Swiper('#swiper-banner', {
+        effect : 'fade',
+        loop: true, 
+        speed: 1500,
+        parallax: true,
+        autoplay: {
+            delay: 3000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'custom',
+            renderCustom: function (swiper, current, total) {
+                var style = 'inline-block h-1 w-3 mx-1';
+                var html = '';
+                for (i = 0; i < total; i++) {
+                    if (i == (current - 1)) {
+                        html += '<span class="' + style + ' bg-slate-200"></span>';
+                    } else {
+                        html += '<span class="' + style + ' bg-slate-800"></span>';;
+                    }    
+                }
+                return html;
+            }  
+        },
+        navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        },
     });
+
+    var myProduct = new Swiper('#swiper-product', {
+        loop: true,
+        speed: 1000,
+        autoplay: {
+            delay: 3000,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    $(document).ready(function(){
+
+        $('#open-menu').click(function() {
+            $('#menu').animate({ left: '0' }, 500);
+            $('#menu li a').animate({ opacity: 1 });
+            $('#menu li div').animate({ width: '100%' });
+        });
+
+        $('#close-menu').click(function() {
+            $('#menu').animate({ left: '-100%' }, 800);
+            $('#menu li a').animate({ opacity: 0 });
+            $('#menu li div').animate({ width: '0%' });
+        });
+
+    });
+
     </script>
 
 </body>

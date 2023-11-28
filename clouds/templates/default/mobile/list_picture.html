@@ -1,37 +1,36 @@
 {template "content","header"}
 
-<div class="layui-container picture-page">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head">
-                <h1 class="mod_head_title">{$CAT[catname]}</h1>
-                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
-                <div class="mod_head_line"></div>
+{template "content","_banner"} 
+{template "content","_category"}  
+
+<link href="{JS_PATH}layui/css/layui.css" rel="stylesheet" type="text/css" >  
+
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10">
+        <div class="grid grid-cols-2 gap-4 layer-photos">
+            {pc:content action="lists" catid="$catid" num="12" order="listorder desc" page="$page"}
+            {loop $data $r}
+            <div class="h-50">
+                <a class="relative overflow-hidden block bg-gray-200 rounded-lg h-0 p-0 pb-[90%]" title="{$r[title]}" href="javascript:void(0);">
+                    <img class="absolute object-cover w-full h-full align-middle" layer-src="{$r[thumb]}" src="{$r[thumb]}" alt="{$r[title]}"  />
+                </a>
             </div>
-            <div class="layui-card-body picture-page_body">
-                <div class="page-category">
-                    {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
-                    <div class="page-category_item">
-                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
-                    </div>
-                    {/loop}
-                </div>
-                <div class="page-category_line--bottom"></div>
-                <div class="layui-col-space10 picture-page_list">
-                    {pc:content action="lists" catid="$catid" num="12" order="listorder desc" page="$page"}
-                    {loop $data $r}
-                    <div class="picture-page_item layui-col-xs12"><a href="{$r[url]}" title="{$r[title]}">
-                        <div class="picture-page_item_thumb"><img src="{$r[thumb]}" alt="{$r[title]}"></div>
-                        <div class="picture-page_item_title"> - {str_cut($r['title'],36)} - </div>
-                    </a></div>
-                    {/loop}
-                    {/pc}
-                </div>
-                <div id="pages" class="public-pages">{$pages}</div>
-            </div>
+            {/loop}
+            {/pc}
         </div>
+        {template "content","_pages"}
     </div>
 </div>
 
-{template "content","footer"}
+<script type="text/javascript" src="{JS_PATH}layui/layui.js"></script>
+<script>
+    layui.use(['layer'], function(){
+        var layer = layui.layer;
+        layer.photos({
+            photos: '.layer-photos',
+            anim: 5
+        });
+    });
+</script>
 
+{template "content","footer"}

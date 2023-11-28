@@ -7,10 +7,8 @@ class index {
 	private $db;
 	function __construct() {
 		$this->db = pc_base::load_model('content_model');
-		$this->_userid = param::get_cookie('_userid');
-		$this->_username = param::get_cookie('_username');
-		$this->_groupid = param::get_cookie('_groupid');
 	}
+
 	//首页
 	public function init() {
 		if(isset($_GET['siteid'])) {
@@ -20,9 +18,7 @@ class index {
 		}
 		$siteid = $GLOBALS['siteid'] = max($siteid,1);
 		define('SITEID', $siteid);
-		$_userid = $this->_userid;
-		$_username = $this->_username;
-		$_groupid = $this->_groupid;
+
 		//SEO
 		$SEO = seo($siteid);
 		$sitelist  = getcache('sitelist','commons');
@@ -31,15 +27,13 @@ class index {
 
 		include template('content','index',$default_style);
 	}
+	
 	//内容页
 	public function show() {
 		$catid = intval($_GET['catid']);
 		$id = intval($_GET['id']);
 
 		if(!$catid || !$id) showmessage(L('information_does_not_exist'),'blank');
-		$_userid = $this->_userid;
-		$_username = $this->_username;
-		$_groupid = $this->_groupid;
 
 		$page = intval($_GET['page']);
 		$page = max($page,1);
@@ -49,8 +43,10 @@ class index {
 		$sitelist  = getcache('sitelist','commons');
 
 		if(!isset($CATEGORYS[$catid]) || $CATEGORYS[$catid]['type']!=0) showmessage(L('information_does_not_exist'),'blank');
+
 		$this->category = $CAT = $CATEGORYS[$catid];
 		$this->category_setting = $CAT['setting'] = string2array($this->category['setting']);
+
 		$siteid = $GLOBALS['siteid'] = $CAT['siteid'];
 		
 		$MODEL = getcache('model','commons');
@@ -133,6 +129,7 @@ class index {
 		$SEO = seo($siteid, $catid, $title, $description, $seo_keywords);
 		
 		define('STYLE',$CAT['setting']['template_list']);
+		
 		if(isset($rs['paginationtype'])) {
 			$paginationtype = $rs['paginationtype'];
 			$maxcharperpage = $rs['maxcharperpage'];
@@ -209,6 +206,7 @@ class index {
 		}
 		include template('content',$template);
 	}
+
 	//列表页
 	public function lists() {
 		$catid = $_GET['catid'] = intval($_GET['catid']);
@@ -219,9 +217,6 @@ class index {
 		} elseif($_priv_data=='-2') {
 			showmessage(L('no_priv'));
 		}
-		$_userid = $this->_userid;
-		$_username = $this->_username;
-		$_groupid = $this->_groupid;
 
 		if(!$catid) showmessage(L('category_not_exists'),'blank');
 		$siteids = getcache('category_content','commons');
@@ -231,6 +226,7 @@ class index {
 
 		if(!isset($CATEGORYS[$catid])) showmessage(L('category_not_exists'),'blank');
 		$CAT = $CATEGORYS[$catid];
+
 		$siteid = $GLOBALS['siteid'] = $CAT['siteid'];
 		extract($CAT);
 		$setting = string2array($setting);
@@ -251,7 +247,7 @@ class index {
 			$self_array = explode(',', $arrchildid);
 			//获取一级栏目ids
 			foreach ($self_array as $arr) {
-				if($arr!=$catid && $CATEGORYS[$arr][parentid]==$catid) {
+				if($arr!=$catid && $CATEGORYS[$arr]['parentid']==$catid) {
 					$array_child[] = $arr;
 				}
 			}
@@ -278,6 +274,17 @@ class index {
 			include template('content',$template);
 		} else {
 		//单网页
+
+			// 添加单页有子分类的情况下跳转第一个子分类
+			if ($CATEGORYS[$catid]['child'] > 0) {
+				$childString = $CATEGORYS[$catid]['arrchildid'];
+				$childArray = explode(',',$childString);
+          		$childId = $childArray[1];
+				if (count($childArray) > 1 && !empty($childId)) { 
+					header('Location:'.$CATEGORYS[$childId]['url']); 
+				} 	
+			}
+			
 			$this->page_db = pc_base::load_model('page_model');
 			$r = $this->page_db->get_one(array('catid'=>$catid));
 			if($r) extract($r);
@@ -334,8 +341,8 @@ class index {
 	 * 检查支付状态
 	 */
 	protected function _check_payment($flag,$paytype) {
-		$_userid = $this->_userid;
-		$_username = $this->_username;
+		$_userid = param::get_cookie('_userid');;
+		$_username = param::get_cookie('_username');;
 		if(!$_userid) return false;
 		pc_base::load_app_class('spend','pay',0);
 		$setting = $this->category_setting;
@@ -355,11 +362,13 @@ class index {
 	protected function _category_priv($catid) {
 		$catid = intval($catid);
 		if(!$catid) return '-2';
-		$_groupid = $this->_groupid;
+		$_groupid = param::get_cookie('_groupid');
 		$_groupid = intval($_groupid);
 		if($_groupid==0) $_groupid = 8;
+
 		$this->category_priv_db = pc_base::load_model('category_priv_model');
 		$result = $this->category_priv_db->select(array('catid'=>$catid,'is_admin'=>0,'action'=>'visit'));
+
 		if($result) {
 			if(!$_groupid) return '-1';
 			foreach($result as $r) {

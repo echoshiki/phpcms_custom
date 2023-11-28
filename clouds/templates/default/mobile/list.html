@@ -1,43 +1,33 @@
 {template "content","header"}
 
-<div class="layui-container news-page">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head">
-                <h1 class="mod_head_title">{$CAT[catname]}</h1>
-                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
-                <div class="mod_head_line"></div>
-            </div>
-            <div class="layui-card-body news-page_body">
-                <div class="page-category">
-                    {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
-                    <div class="page-category_item">
-                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
-                    </div>
-                    {/loop}
-                </div>
-                <div class="page-category_line--bottom"></div>
+{template "content","_banner"}
+{template "content","_category"}
 
-                <div class="layui-col-space10 news-page_list">
-                    {pc:content action="lists" catid="$catid" num="12" order="listorder desc" page="$page"}
-                    {loop $data $r}
-                    <div class="news-page_item">
-                        <div class="news-page_item_thumb"><a href="{$r[url]}" title="{$r[title]}" class="news-page_item_thumb_link"><img src="{$r[thumb]}" alt="{$r[title]}"></a></div>
-                        <div class="news-page_item_info">
-                            <div class="news-page_item_title"><a href="{$r[url]}" title="{$r[title]}" class="news-page_item_title_font">{str_cut($r['title'],100)}</a></div>
-                            <div class="news-page_item_date">{date('Y-m-d', $r['inputtime'])}</div>
-                            <div class="news-page_item_desc">{str_cut($r['description'], 120)}</div>
-                        </div> 
-                    </div>
-                    {/loop}
-                    {/pc}
-                </div>
-                <div id="pages" class="public-pages">{$pages}</div>
-
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10">
+        <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-2">
+            {pc:content action="lists" catid="$catid" num="6" moreinfo="1" thumb="1" order="listorder desc" }
+            {loop $data $r}
+            <div class="mb-10">
+                <a class="relative overflow-hidden block bg-gray-200 rounded-lg h-0 p-0 pb-[50%]" title="{$r[title]}" href="{$r[url]}">
+                    <img class="absolute object-cover w-full h-full align-middle" src="{$r[thumb]}" alt="{$r[title]}" />
+                </a>
+                <p class="text-lg font-bold mt-4 font-serif "><a title="{$r[title]}" href="{$r[url]}">{$r[title]}</a></p>
+                <p class="text-slate-400 my-2 flex gap-2 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                    </svg>
+                   <span class="text-sm">{date('Y-m-d',$r[inputtime])}</span>
+                </p>
+                <p class="text-sm font-light text-slate-600 text-justify mt-1  font-serif">{$r[description]}</p>
             </div>
+            {/loop}
+            {/pc}
         </div>
+        {template "content","_pages"}
     </div>
 </div>
+
 
 {template "content","footer"}
 

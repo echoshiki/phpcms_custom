@@ -1,39 +1,37 @@
-{template "content","header"}    
+{template "content","header"}
 
-<div class="mod page">
-    <div class="rom">
+<div class="page">
+    <div class="container py-3">
 
-        {template "content","left"} 
+        {template "content","page_menu"}  
 
-        <!-- 标题 & 面包屑 -->
-        <div class="right-col right">
-
-            {template "content","bread"}
-
-            <div class="content-info">
-                <div class="news-list">
-                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="20"}
+        <div class="page_list py-3 m-0">
+            <div class="page_news_list row">
+                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
                 {loop $data $r}
-                <div class="item">
-                    <div class="thumb left"><a href="{$r[url]}"><img src="{if $r[thumb]}{$r[thumb]}{else}{MY_PATH}no-news-pic.jpg{/if}" alt="{$r[title]}"></a></div>
-                    <div class="information left">
-                        <div class="tt"><a href="{$r[url]}">{$r[title]}</a></div>
-                        <div class="date"><i class="layui-icon layui-icon-date"></i>&nbsp;&nbsp;发布日期：{date('Y-m-d',$r['inputtime'])}</div>
-                        <div class="description">{$r[description]}</div>
+                <div class="page_news_item col-4">
+                    <div class="page_news_thumb">
+                        <a href="{$r[url]}" title="{$r[title]}"><img src="{$r[thumb]}" alt="{$r[title]}"></a>
                     </div>
-                    <div class="clear"></div>
+                    <div class="page_news_info">
+                        <div class="page_news_title">
+                            <a href="{$r[url]}" title="{$r[title]}">{$r[title]}</a>
+                        </div>
+                        <div class="page_news_date ">
+                            <span class=" d-flex align-items-center"><svg t="1700491375895" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7948" width="200" height="200"><path d="M902.095238 438.857143v390.095238a73.142857 73.142857 0 0 1-73.142857 73.142857H195.047619a73.142857 73.142857 0 0 1-73.142857-73.142857V438.857143h780.190476z m-512 219.428571h-121.904762v73.142857h121.904762v-73.142857z m182.857143 0h-121.904762v73.142857h121.904762v-73.142857z m182.857143 0h-121.904762v73.142857h121.904762v-73.142857z m-365.714286-146.285714h-121.904762v73.142857h121.904762v-73.142857z m182.857143 0h-121.904762v73.142857h121.904762v-73.142857z m182.857143 0h-121.904762v73.142857h121.904762v-73.142857zM195.047619 170.666667h73.142857v121.904762h158.476191V170.666667H609.52381v121.904762h158.47619V170.666667H828.952381a73.142857 73.142857 0 0 1 73.142857 73.142857v121.904762H121.904762v-121.904762a73.142857 73.142857 0 0 1 73.142857-73.142857z m529.212952-48.761905v121.904762h-73.142857V121.904762h73.142857zM380.050286 121.904762v121.904762h-73.142857V121.904762h73.142857z" fill="#6c6c6c" p-id="7949"></path></svg>{date('Y-m-d', $r[updatetime])}</span>
+                        </div>
+                        <div class="page_news_description">
+                            <p>{$r[description]}</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="line"></div>
                 {/loop}
-                {/pc} 
-                </div>
-                <br>
-                <div id="pages" class="text-c">{$pages}</div>
+                {/pc}
             </div>
-
+            <div id="pages" class="">{$pages}</div>
         </div>
-        <div class="clear"></div>
     </div>
 </div>
 
 {template "content","footer"}
+

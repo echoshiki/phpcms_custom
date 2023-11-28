@@ -1,32 +1,30 @@
 {template "content","header"}
 
-<div class="layui-container product-detail">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head">
-                <h1 class="mod_head_title">产品详情</h1>
-                <p class="mod_head_en">PRODUCT DETAIL</p>
-                <div class="mod_head_line"></div>
-            </div>
+{template "content","_banner"}
+{template "content","_category"}
 
-            <div class="layui-card-body product-detail_body">
-                <div class="product-detail_info">
-                    <p class="product-detail_font">名称：<span>{$title}</span></p>
-                    <p class="product-detail_font">分类：<span>{$CATEGORYS[$catid][catname]}</span></p>
-                    <p class="product-detail_font">电话：<span>{$sitelist[1][tel]}</span></p>
-                    <p class="product-detail_font">邮箱：<span>{$sitelist[1][email]}</span></p>
-                    <div class="product-detail_thumb">
-                        <img src="{$thumb}" alt="{$title}">
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10">
+        <div class="text-center">
+            <p class="text-lg">{$title}</p>
+            <div class="inline-block h-1 bg-[var(--main-color)] w-10 my-2"></div>
+            <p class="text-gray-400 text-xs">所属：{$CATEGORYS[$catid][catname]}</p>
+        </div>
+        <div class="font-serif text-sm leading-loose mt-5">
+            <div class="bg-gray-200 p-1 text-center rounded-md">
+                <div class="swiper-container" id="swiper-product">
+                    <div class="swiper-wrapper">
+                        {loop $pics $r}
+                        <div class="swiper-slide flex h-80 items-center justify-center">
+                            <img class="w-60" src="{$r[url]}" alt="{$r[title]}">
+                        </div>
+                        {/loop}
                     </div>
-                </div>
-                <div class="product-detail_introduce">
-                    <div class="product-detail_introduce_title">产品简介</div>
-                    <div class="product-detail_introduce_content">
-                        {$content}
-                    </div>
-                	
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
+            <div class="mt-5">{$content}</div>
         </div>
     </div>
 </div>

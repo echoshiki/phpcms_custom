@@ -1,39 +1,25 @@
-{template "content","header"}    
+{template "content","header"}
 
-<div class="mod page">
-    <div class="rom">
+<div class="page">
+    <div class="container py-3">
 
-        {template "content","left"} 
+        {template "content","page_menu"}  
 
-        <!-- 标题 & 面包屑 -->
-        <div class="right-col right">
-
-            {template "content","bread"}
-
-            <div class="content-info product-col">
-                <div class="product-list">
-                    {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
-                    {loop $data $r}
-                    <div class="item">
-                        <a href="{$r[thumb]}" data-rel="lightcase:myPhotos" title="{$r[title]}" data-lc-caption="{$r[description]}">
-                            <div class="pic"><img src="{$r[thumb]}" alt="{$r[description]}"></div>
-                            <div class="tt">{$r[title]}</div>
-                            <div class="line"></div>
-                        </a>
+        <div class="page_list">
+            <div class="page_picture_list row layer-photos">
+                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
+                {loop $data $r}
+                <div class="page_product_item col-lg-3 col-xl-3 mt-3">
+                    <div class="page_product_thumb">
+                        <a href="javascript:void(0);" title="{$r[title]}"><img layer-src="{$r[thumb]}" src="{$r[thumb]}" alt="{$r[title]}"></a>
                     </div>
-                    {/loop}
-                    {/pc}
-                    <div class="clear"></div> 
                 </div>
-                <br>
-                <div id="pages" class="text-c">{$pages}</div>
+                {/loop}
+                {/pc}
             </div>
-
+            <div id="pages" class="">{$pages}</div>
         </div>
-        <div class="clear"></div>
     </div>
 </div>
 
 {template "content","footer"}
-
-

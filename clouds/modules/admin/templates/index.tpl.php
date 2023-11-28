@@ -145,6 +145,7 @@
 					<li class="layui-nav-item <?php echo $status; ?>">
 						<a href="javascript:;"><i class="layui-icon layui-icon-app"></i>&nbsp;&nbsp;高级扩展</a>
 						<dl class="layui-nav-child">
+							<dd><a href="?m=attachment&c=manage&pc_hash=<?php echo $hash; ?>" target="right">附件管理</a></dd>
 							<dd><a href="?m=admin&c=database&a=export&pc_hash=<?php echo $hash; ?>" target="right">数据备份</a></dd>
 							<dd><a href="?m=admin&c=admin_manage&a=init&pc_hash=<?php echo $hash; ?>" target="right">管理员设置</a></dd>
 							<dd><a href="?m=admin&c=role&a=init&pc_hash=<?php echo $hash; ?>" target="right">角色设置</a></dd>

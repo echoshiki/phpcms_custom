@@ -1,36 +1,11 @@
 {template "content","header"}
 
-<?php
-      if (empty($content)) {
-          $childString = $CATEGORYS[$catid]['arrchildid'];
-          $childArray = explode(',',$childString);
-          $childId = $childArray[1];
-          if ((count($childArray)>1)&&!empty($childId)) { header('Location:'.$CATEGORYS[$childId]['url']); }   
-      }
-?>
+{template "content","_banner"} 
+{template "content","_category"}   
 
-<div class="layui-container about-page">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head">
-                <h1 class="mod_head_title">{$title}</h1>
-                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
-                <div class="mod_head_line"></div>
-            </div>
-            <div class="layui-card-body about-page_body">
-            	<div class="page-category">
-            		{loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
-					<div class="page-category_item">
-                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
-                    </div>
-					{/loop}
-            	</div>
-                <div class="page-category_line--bottom"></div>
-                <div class="about-page_content">
-                	{$content}
-                </div>
-            </div>
-        </div>
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10 font-serif text-sm leading-loose">
+        {$content}
     </div>
 </div>
 

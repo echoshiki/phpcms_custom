@@ -1,0 +1,60 @@
+:root {
+    --main-color: #0043a3;
+    --sub-color: #dd6b20;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'JinBuTi';
+    src: url('fonts/DingTalk-JinBuTi.ttf');
+}
+
+@font-face {
+    font-family: 'YouSheBiaoTiHei';
+    src: url('fonts/YouSheBiaoTiHei.ttf');
+}
+
+/* 移动端 12px / 16rem = 75% */
+@media (max-width: 375px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/* 960px / 60rem = 16px */
+@media (min-width: 992px) {
+    html {
+        font-size: 100%;
+    }
+}
+
+/* 1140px / 60rem = 19px */
+@media (min-width: 1200px) {
+    html {
+        font-size: 118.75%;
+    }
+}
+
+/* 1320px / 60rem = 22px */
+@media (min-width: 1400px) {
+    html {
+        font-size: 137.5%;
+    }
+}
+
+body {
+    font: 1rem 'Poppins', system-ui, -apple-system, "Microsoft YaHei", "微软雅黑", "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p {
+    margin-bottom: 1rem;
+}

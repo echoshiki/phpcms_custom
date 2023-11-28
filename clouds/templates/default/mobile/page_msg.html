@@ -1,35 +1,31 @@
-{template "content","header"}
+{template "content","header"}   
 
-<div class="layui-container msg-page">  
-    <div class="layui-row">
-        <div class="layui-card">
-            <div class="mod_head">
-                <h1 class="mod_head_title">{$title}</h1>
-                <p class="mod_head_en">{$CATEGORYS[$top_parentid][catdir]}</p>
-                <div class="mod_head_line"></div>
-            </div>
-            <div class="layui-card-body msg-page_body">
-                <div class="page-category">
-                    {loop subcat($top_parentid,$CATEGORYS[$top_parentid][type],0,$siteid) $r}
-                    <div class="page-category_item">
-                        <a href="{$r['url']}" title="{$r['catname']}" class="page-category_item_title">{$r['catname']}</a>
-                    </div>
-                    {/loop}
+{template "content","_banner"} 
+{template "content","_category"}   
+
+<div class="px-5 mt-2">
+    <div class="bg-white px-5 py-10 text-sm leading-loose">
+        <form action="/index.php?m=formguide&c=index&a=show&formid=15&siteid=1" method="post" class="mx-auto space-y-4">
+                <input class="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-sm" type="text" name="info[nickname]" id="nickname" placeholder="请输入您的称呼" />
+                <input class="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-sm" type="text" name="info[phone]" id="phone" placeholder="请输入您的联系方式" />    
+                <input class="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-sm" type="text" name="info[wechat]" id="wechat" placeholder="请输入您的微信号" />     
+                <input class="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-sm" type="text" name="info[email]" id="email" placeholder="请输入您的电子邮箱" />
+                <textarea class="w-full rounded-lg border border-gray-200 p-4 pe-12 text-sm shadow-sm h-32" name="info[content]" id="content" placeholder="请输入您的留言内容"></textarea>
+                <div class="flex justify-between items-center">
+                    <p class="text-xs font-light text-slate-500 flex flex-col">
+                        <span class="mb-1">拨打热线电话：</span> 
+                        <span class="text-base font-bold text-[var(--main-color)]">
+                            <a href="tel:{$sitelist[1][tel]}">{$sitelist[1][tel]}</a> 
+                        </span>
+                        <span class="text-base font-bold text-[var(--main-color)]">
+                            <a href="tel:{$sitelist[1][mobile]}">{$sitelist[1][mobile]}</a>
+                        </span>
+                    </p>
+                    <button class="inline-block rounded text-sm font-medium text-white bg-[var(--main-color)] px-12 py-3" type="submit" name="dosubmit" id="dosubmit">提交</button>
                 </div>
-                <div class="page-category_line--bottom"></div>
-
-                <div class="msg-page_info">
-                    <div class="msg-page_content">
-                        <script language='javascript' src='{APP_PATH}index.php?m=formguide&c=index&a=show&formid=15&action=js&siteid=1'></script>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+                
+        </form>
     </div>
 </div>
 
-{template "content","footer"}
-
-
-
+{template "content","footer"}  
