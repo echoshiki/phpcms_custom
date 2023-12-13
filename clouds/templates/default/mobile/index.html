@@ -39,7 +39,7 @@
             <div class="w-12 h-1 bg-[var(--main-color)] my-3"></div>
         </div>
         <div class="grid grid-cols-2 gap-4">
-            {pc:content action="lists" catid="2" num="10" moreinfo="1" thumb="1" order="listorder asc" }
+            {pc:content action="lists" catid="2" num="10" moreinfo="1" thumb="1" order="listorder DESC" }
             {loop $data $r}
             <div class="h-50">
                 <a class="relative overflow-hidden block bg-gray-200 rounded-lg h-0 p-0 pb-[90%]" title="{$r[title]}" href="{$r[url]}">
@@ -60,7 +60,7 @@
             <div class="w-12 h-1 bg-[var(--main-color)] my-3"></div>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 sm:gap-2">
-            {pc:content action="lists" catid="3" num="10" moreinfo="1" thumb="1" order="listorder desc" }
+            {pc:content action="lists" catid="3" num="10" moreinfo="1" thumb="1" order="listorder DESC" }
             {loop $data $r}
             <div class="mb-10">
                 <a class="relative overflow-hidden block bg-gray-200 rounded-lg h-0 p-0 pb-[50%]" title="{$r[title]}" href="{$r[url]}">

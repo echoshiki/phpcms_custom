@@ -33,12 +33,12 @@
         <div class="container">
             <div class="navgation_list d-flex justify-content-between ">
                 <div class="navgation_item"><a class="navgation_font" href="<?php echo siteurl($siteid);?>">首页</a></div>
-                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=522dcf79f84779c8c187ca374072cc0d&action=category&catid=0&num=8&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'8',));}?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=522dcf79f84779c8c187ca374072cc0d&action=category&catid=0&num=8&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'0','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'8',));}?>
                 <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
                 <div class="navgation_item">
                     <a class="navgation_font" href="<?php echo $r['url'];?>"><?php echo $r['catname'];?></a>
                     <div class="navgation_child_list">
-                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=fb7bc78d0d7e09b1eb00d7d2cd6b61b8&action=category&catid=%24r%5Bcatid%5D&num=8&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>$r[catid],'siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'8',));}?>
+                        <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=fb7bc78d0d7e09b1eb00d7d2cd6b61b8&action=category&catid=%24r%5Bcatid%5D&num=8&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>$r[catid],'siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'8',));}?>
                         <?php $n=1;if(is_array($data)) foreach($data AS $v) { ?>
                         <div class="navgation_child_item">
                             <a class="navgation_child_font" href="<?php echo $v['url'];?>"><?php echo $v['catname'];?></a>
@@ -57,7 +57,7 @@
 
     <div class="swiper-container" id="swiper-banner">
         <div class="swiper-wrapper">
-            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3224730db8766527a68006f9cdaccd06&action=lists&catid=14&num=5&siteid=%24siteid&moreinfo=1&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'14','siteid'=>$siteid,'moreinfo'=>'1','order'=>'listorder ASC','limit'=>'5',));}?>
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=3224730db8766527a68006f9cdaccd06&action=lists&catid=14&num=5&siteid=%24siteid&moreinfo=1&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'14','siteid'=>$siteid,'moreinfo'=>'1','order'=>'listorder ASC','limit'=>'5',));}?>
             <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
             <div class="swiper-slide" style="background:url('<?php echo $r['thumb'];?>') center center; height: 25rem;">
                 <div class="swiper_info_middle">

@@ -8,16 +8,6 @@
     src: url('fonts/Poppins-Regular.ttf');
 }
 
-@font-face {
-    font-family: 'JinBuTi';
-    src: url('fonts/DingTalk-JinBuTi.ttf');
-}
-
-@font-face {
-    font-family: 'YouSheBiaoTiHei';
-    src: url('fonts/YouSheBiaoTiHei.ttf');
-}
-
 /* 移动端 12px / 16rem = 75% */
 @media (max-width: 375px) {
     html {

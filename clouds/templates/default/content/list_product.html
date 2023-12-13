@@ -5,7 +5,7 @@
         {template "content","side"}
         <div class="page_list py-5">
             <div class="page_product_list">
-                {pc:content action="lists" catid="$catid" order="id DESC" page="$page" num="12"}
+                {pc:content action="lists" catid="$catid" order="listorder DESC" page="$page" num="12"}
                 {loop $data $r}
                 <div class="page_product_item mb-3">
                     <div class="page_product_thumb">

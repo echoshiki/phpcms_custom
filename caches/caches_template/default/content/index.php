@@ -7,7 +7,7 @@
             <p>产品广泛应用于各个行业，并提供相应的解决方案</p>
         </div>
         <div class="product_list">
-            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=f0f3dff46feb05cb6d9099253694a7ec&action=category&catid=19&num=6&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'19','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'6',));}?>
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=f0f3dff46feb05cb6d9099253694a7ec&action=category&catid=19&num=6&siteid=%24siteid&order=listorder+ASC\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'category')) {$data = $content_tag->category(array('catid'=>'19','siteid'=>$siteid,'order'=>'listorder ASC','limit'=>'6',));}?>
             <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
             <div class="product_item mb-4">
                 <div class="product_thumb">
@@ -81,7 +81,7 @@
         </div>
         <div class="photo_list swiper-container layer-photos" id="swiper-photo">
             <div class="swiper-wrapper">
-                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=1420002c5f3a249ddba897011a502521&action=lists&catid=9&order=listorder+DESC&num=50\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'9','order'=>'listorder DESC','limit'=>'50',));}?>
+                <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=1420002c5f3a249ddba897011a502521&action=lists&catid=9&order=listorder+DESC&num=50\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'9','order'=>'listorder DESC','limit'=>'50',));}?>
                 <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
                 <div class="swiper-slide photo_item">
                     <a href="javacript:void(0);" title="<?php echo $r['title'];?>">
@@ -103,7 +103,7 @@
             <p>掌握国内外业界前沿资讯与技术</p>
         </div>
         <div class="news_list">
-            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=6d87856cc7fb996df3c8d680f17a51f6&action=lists&catid=3&order=listorder+DESC&num=6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">编辑</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'3','order'=>'listorder DESC','limit'=>'6',));}?>  
+            <?php if(defined('IN_ADMIN')  && !defined('HTML')) {echo "<div class=\"admin_piao\" pc_action=\"content\" data=\"op=content&tag_md5=6d87856cc7fb996df3c8d680f17a51f6&action=lists&catid=3&order=listorder+DESC&num=6\"><a href=\"javascript:void(0)\" class=\"admin_piao_edit\">修改</a>";}$content_tag = pc_base::load_app_class("content_tag", "content");if (method_exists($content_tag, 'lists')) {$data = $content_tag->lists(array('catid'=>'3','order'=>'listorder DESC','limit'=>'6',));}?>  
             <?php $n=1;if(is_array($data)) foreach($data AS $r) { ?>
             <div class="news_item">
                 <a href="<?php echo $r['url'];?>" class="news_thumb"><img src="<?php echo $r['thumb'];?>" alt="<?php echo $r['title'];?>"></a>
