@@ -19,8 +19,8 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map("l-map");            // 创建Map实例
-    map.centerAndZoom(new BMap.Point(<?php echo $sitelist[1]['mappoint']; ?>), 16);
-    var marker = new BMap.Marker(new BMap.Point(<?php echo $sitelist[1]['mappoint']; ?>)); // 创建标注
+    map.centerAndZoom(new BMap.Point({$sitelist[1]['mappoint']}), 16);
+    var marker = new BMap.Marker(new BMap.Point({$sitelist[1]['mappoint']})); // 创建标注
 　　map.addOverlay(marker); // 将标注添加到地图中
     map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
     map.setCurrentCity("扬州");          // 设置地图显示的城市 此项是必须设置的

@@ -1,4 +1,4 @@
-{template "content","header"}
+{template "content","_header"}
 
 <div class="product py-5 bg-gray">
     <div class="container">
@@ -11,10 +11,10 @@
             {loop $data $r}
             <div class="product_item mb-4">
                 <div class="product_thumb">
-                    <a href="{$r[url]}"><img src="{$r[image]}" alt="{$r[catname]}"></a>
+                    <a href="{$r[url]}"><img src="{$r[thumb]}" alt="{$r[title]}"></a>
                     <div class="product_info">
                         <a href="{$r[url]}">
-                            <h2>{$r[catname]}</h2>
+                            <h2>{$r[title]}</h2>
                             <p>{$r[description]}</p>
                             <svg t="1700383499085" class="product_info_icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4807" width="200" height="200"><path d="M635.733333 512l-149.333333-149.333333L426.666667 422.4l89.6 89.6-89.6 89.6 59.733333 59.733333 149.333333-149.333333zM170.666667 512c0 187.733333 153.6 341.333333 341.333333 341.333333s341.333333-153.6 341.333333-341.333333-153.6-341.333333-341.333333-341.333333-341.333333 153.6-341.333333 341.333333z m85.333333 0c0-140.8 115.2-256 256-256s256 115.2 256 256-115.2 256-256 256-256-115.2-256-256z" fill="#e6e6e6" p-id="4808"></path></svg>
                         </a>
@@ -118,4 +118,4 @@
     </div>
 </div>
 
-{template "content","footer"}
+{template "content","_footer"}

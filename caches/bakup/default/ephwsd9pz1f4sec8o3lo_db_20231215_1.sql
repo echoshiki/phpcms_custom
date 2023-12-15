@@ -1,6 +1,6 @@
 # phpcms bakfile
 # version:PHPCMS V9
-# time:2023-12-13 11:18:45
+# time:2023-12-15 10:20:49
 # type:phpcms
 # phpcms:http://www.phpcms.cn
 # --------------------------------------------------------
@@ -2886,8 +2886,7 @@ CREATE TABLE `yp_session` (
   KEY `lastvisit` (`lastvisit`)
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
 
-INSERT INTO `yp_session` VALUES('sdsi3utco8kug75kj4db6ialfv','1','192.168.65.1','1702436893','1','0','admin','site','edit','code|s:0:\"\";userid|s:1:\"1\";roleid|s:1:\"1\";pc_hash|s:6:\"lSlL36\";lock_screen|i:0;');
-INSERT INTO `yp_session` VALUES('1rn1k2k195nvo65m3cr3mv720g','1','192.168.65.1','1702437517','1','0','admin','database','export','code|s:0:\"\";userid|s:1:\"1\";roleid|s:1:\"1\";pc_hash|s:6:\"0Ycucp\";lock_screen|i:0;');
+INSERT INTO `yp_session` VALUES('1rn1k2k195nvo65m3cr3mv720g','1','192.168.65.1','1702606844','1','0','admin','database','export','code|s:0:\"\";userid|s:1:\"1\";roleid|s:1:\"1\";pc_hash|s:6:\"0Ycucp\";lock_screen|i:0;');
 
 DROP TABLE IF EXISTS `yp_site`;
 CREATE TABLE `yp_site` (
